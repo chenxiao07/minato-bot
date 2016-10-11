@@ -7,7 +7,7 @@ foreach ($json_object->events as $event) {
     if('message' == $event->type){
         api_post_request($event->replyToken, $event->message->text);
     }else if('beacon' == $event->type){
-        api_post_request($event->replyToken, 'BEACONイベント!!');
+        api_post_request($event->replyToken, 'Semi Studioのフィールドへようこそ！');
     }
 }
 
