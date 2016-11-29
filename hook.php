@@ -1,5 +1,7 @@
 <?php
 
+include('phpqrcode/qrlib.php'); 
+
 $json_string = file_get_contents('php://input');
 $json_object = json_decode($json_string);
 
@@ -18,12 +20,16 @@ function api_post_request($token, $message) {
         'Content-Type: application/json',
         "Authorization: Bearer {$channel_access_token}"
     );
+
+    QRcode::png($message, "test.png");
+
     $post = array(
         'replyToken' => $token,
         'messages' => array(
             array(
-                'type' => 'text',
-                'text' => $message
+                'type' => 'image',
+                "originalContentUrl": "https://minato-bot.herokuapp.com/test.png",
+                "originalContentUrl": "https://minato-bot.herokuapp.com/test.png",
             )
         )
     );
