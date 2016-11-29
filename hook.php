@@ -28,8 +28,8 @@ function api_post_request($token, $message) {
         'messages' => array(
             array(
                 'type' => 'image',
-                "originalContentUrl": "https://minato-bot.herokuapp.com/test.png",
-                "originalContentUrl": "https://minato-bot.herokuapp.com/test.png"
+                'originalContentUrl' => 'https://minato-bot.herokuapp.com/test.png',
+                'originalContentUrl' => 'https://minato-bot.herokuapp.com/test.png'
             )
         )
     );
