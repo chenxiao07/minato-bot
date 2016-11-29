@@ -8,8 +8,6 @@ $json_object = json_decode($json_string);
 foreach ($json_object->events as $event) {
     if('message' == $event->type){
         api_post_request($event->replyToken, $event->message->text);
-    }else if('beacon' == $event->type){
-        api_post_request($event->replyToken, 'Semi Studioのフィールドへようこそ！');
     }
 }
 
@@ -27,9 +25,8 @@ function api_post_request($token, $message) {
         'replyToken' => $token,
         'messages' => array(
             array(
-                'type' => 'image',
-                'originalContentUrl' => 'https://minato-bot.herokuapp.com/test.png',
-                'originalContentUrl' => 'https://minato-bot.herokuapp.com/test.png'
+                'type' => 'text',
+                'text' => 'https://minato-bot.herokuapp.com/test.png'
             )
         )
     );
