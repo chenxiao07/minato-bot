@@ -27,7 +27,7 @@ function api_post_request($token, $message) {
         'replyToken' => $token,
         'messages' => array(
             array(
-                'type' => 'text',
+                'type' => 'image',
                 'originalContentUrl' => 'https://minato-bot.herokuapp.com/'.$name,
                 'previewImageUrl' => 'https://minato-bot.herokuapp.com/'.$name
             )
