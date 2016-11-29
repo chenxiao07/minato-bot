@@ -19,15 +19,17 @@ function api_post_request($token, $message) {
         "Authorization: Bearer {$channel_access_token}"
     );
 
-    // QRcode::png($message, "test.png");
+    $name = uniqid(rand()).".png";
+
+    QRcode::png($message, $name);
 
     $post = array(
         'replyToken' => $token,
         'messages' => array(
             array(
                 'type' => 'text',
-                'originalContentUrl' => 'https://minato-bot.herokuapp.com/test.png',
-                'previewImageUrl' => 'https://minato-bot.herokuapp.com/test.png'
+                'originalContentUrl' => 'https://minato-bot.herokuapp.com/'.$name,
+                'previewImageUrl' => 'https://minato-bot.herokuapp.com/'.$name
             )
         )
     );
