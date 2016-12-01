@@ -31,6 +31,37 @@ function qr_code ($txt)
     return $post;
 }
 
+function button ($txt)
+{
+    $post = array(
+        'replyToken' => $token,
+        'messages' => array(
+            array(
+                'type' => 'template',
+                'altText' => 'this is a buttons template',
+                'template' => array(
+                    'type' => 'confirm',
+                    'text' => 'Are you sure?',
+                    'actions' => array(
+                        array(
+                            'type' => 'message',
+                            'label' => 'Yes',
+                            'text' => 'yes'
+                        ),
+                        array(
+                            'type' => 'message',
+                            'label' => 'No',
+                            'text' => 'no'
+                        )
+                    )
+                )
+            )
+        )
+    );
+
+    return $post;
+}
+
 function reply_message($token, $txt) {
     $url = 'https://api.line.me/v2/bot/message/reply';
     $channel_access_token = 'P5pLeFX5jRoU9l9NNGPDDbceTn92PiKdIb/rrB9U6ecfQKTT67W2q5GCnEgH66whzuxb3yzfbLdecax3sMtzWkBY9cYBmt+NvU7DfOJ19rEFI0Mz5vtGabhp0EanclclCgMvvZT9ydvHnYl0JDKvWwdB04t89/1O/w1cDnyilFU=';
@@ -39,7 +70,7 @@ function reply_message($token, $txt) {
         "Authorization: Bearer {$channel_access_token}"
     );
 
-    $post = qr_code($txt);
+    $post = button($txt);
 
     $curl = curl_init($url);
     curl_setopt($curl, CURLOPT_POST, true);
