@@ -70,7 +70,7 @@ function reply_message($token, $txt) {
         "Authorization: Bearer {$channel_access_token}"
     );
 
-    $post = button($txt);
+    $post = qr_code($txt);
 
     $curl = curl_init($url);
     curl_setopt($curl, CURLOPT_POST, true);
