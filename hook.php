@@ -11,7 +11,7 @@ foreach ($json_object->events as $event) {
     }
 }
 
-function qr_code ($txt)
+function qr_code ($token, $txt)
 {
     $name = uniqid(rand()).".png";
 
@@ -31,7 +31,7 @@ function qr_code ($txt)
     return $post;
 }
 
-function button ($txt)
+function button ($token, $txt)
 {
     $post = array(
         'replyToken' => $token,
@@ -70,7 +70,7 @@ function reply_message($token, $txt) {
         "Authorization: Bearer {$channel_access_token}"
     );
 
-    $post = qr_code($txt);
+    $post = qr_code($token, $txt);
 
     $curl = curl_init($url);
     curl_setopt($curl, CURLOPT_POST, true);
