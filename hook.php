@@ -99,10 +99,10 @@ function button_template ($token, $txt)
         'replyToken' => $token,
         'messages' => array(
             array(
-                'type' => 'buttons',
+                'type' => 'template',
                 'altText' => 'this is a buttons template',
                 'template' => array(
-                    'type' => 'confirm',
+                    'type' => 'buttons',
                     'title' => 'Button title',
                     'text' => 'Button text test?',
                     'actions' => array(
